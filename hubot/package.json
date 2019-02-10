@@ -1,0 +1,59 @@
+{
+  "name": "Hodor",
+  "version": "1.0.0",
+  "private": true,
+
+  "author": "leena alabdulkareem leenaKr",
+
+  "description": "[1]greetings[2]told you his name[3]when you say team or guys[4]matching whos better and whos worse",
+
+  "dependencies": {},
+
+  "engines": {
+    "node": "> 4.0.0"
+  }
+}
+
+
+
+// #1 greeting 
+
+module.exports = (robot) =>
+hello=["hey there","yo yo yoo ", "hellooo","well hello there"]
+    robot.hear /hi/hey/hello/heey/yo/i, (res) => 
+    
+    res.respond random = Math.floor(Math.random()* hello.length )
+     
+})
+}
+// #2 what is your name 
+module.exports = (robot) =>
+   robot.respond / what is your name /i , (res)=>
+   res.reply 'Hodor Hodor Hodor'
+
+// #3 when someone says team or guys
+
+module.exports = (robot) =>
+   robot.hear /team/guys/i, (res) =>
+   res.send (" hey" <!everyone> " pay attention")
+
+
+
+// #4 matching on the phrase 'which is better', "who is better","which is worse","who is worse"
+// choose randome number , if it's greater than or equal 3 
+// it will use one of the responses stored in whaaat array
+
+whaaat =["i could tell you , but then i'd have to kill you", 
+"Answering that would be a matter of national security",
+"You can't possibly compare them!",
+"Both hold a special place in my heart"]
+
+module.export = (robot)=>
+    robot.respond / (which|who) is (better|worse)\?* (.*) or (.*?)\??$/i,(msg)=>
+     choosen_res =msg.random[1..5]
+ if choosen_res >= 3
+     msg.send msg.random whaaat
+ else
+     msg.send "Clearly #{msg.match[choosen_res + 2]} is #{msg.match[2]} "
+
+ 
